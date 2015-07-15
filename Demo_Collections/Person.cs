@@ -32,7 +32,7 @@ namespace Demo_Collections
             {
                 string[] names = _name.Split(' ');
                 this.firstName = names[0];
-                this.lastName = _name.Substring(names[0].Length +1);
+                this.lastName = _name.Substring(names[0].Length +1);    //everything after first space is last name
             }
             else   //otherwise, set the first name to the empty string and store the name in last name
             {

@@ -16,7 +16,7 @@ namespace Demo_Collections
             {
                 // Create an instance of StreamReader to read from a file. 
                 // The using statement also closes the StreamReader. 
-                using (StreamReader sr = new StreamReader(@"C:\Users\Cheryl\Documents\Visual Studio 2013\Projects\Demo_Collections\Demo_Collections\ListOfNames.txt"))
+                using (StreamReader sr = new StreamReader("ListOfNames.txt"))
                 {
                     string line;
                     // Read each line from a file; assume each line contains one name
