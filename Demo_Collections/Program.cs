@@ -38,7 +38,25 @@ namespace Demo_Collections
                 p.Print();
             }
 
-            //keep console open during debugging
+            //keep console open until ready to move on
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+            Console.WriteLine();
+
+            Dictionary<string, Product> catalog= new Dictionary<string, Product>
+                {
+                    { "hardcover", new Product("Cold Shadows Hardcover", 24.99, "Random House") },
+                    { "trade", new Product("Cold Shadows Trade Paperback", 19.99, "Random House") },
+                    { "mass", new Product("Cold Shadows Mass Market Paperback", 8.99, "Random House")}
+                };
+
+            foreach (KeyValuePair<string, Product> item in catalog)
+            {
+                Console.Write(item.Key + ":   \t");
+                item.Value.Print();
+            }
+            //keep console open until ready to move on
+            Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
         }
     }
