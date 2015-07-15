@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Demo_Collections
 {
@@ -10,52 +11,35 @@ namespace Demo_Collections
     {
         static void Main(string[] args)
         {
-            Dictionary<int, Customer> customerDictionary = new Dictionary<int, Customer>();
-            Customer c1 = new Customer();
-            Customer c2 = new Customer("Paul");
-            customerDictionary.Add(c1.Id, c1);
-            customerDictionary.Add(c2.Id, c2);
-
-            customerDictionary[1].Print();
-            customerDictionary[2].Print();
-
-            //customerList.Add(c1);
-            //customerList.Add(c2);
-
-            //foreach (Customer element in customerList)
-            //{
-            //    element.Print();
-            //}
-            
- 
-
-
-
-
-            //keep console open during debugging
-            Console.ReadLine();
-        }
-        static void testCustomer()
-        {
-            List<Customer> customerList = new List<Customer>();
-            Customer c1 = new Customer();
-            Customer c2 = new Customer("Paul");
-            customerList.Add(c1);
-            customerList.Add(c2);
-
-            foreach (Customer element in customerList)
+            List<Person> people = new List<Person>();
+            try
             {
-                element.Print();
+                // Create an instance of StreamReader to read from a file. 
+                // The using statement also closes the StreamReader. 
+                using (StreamReader sr = new StreamReader(@"C:\Users\Cheryl\Documents\Visual Studio 2013\Projects\Demo_Collections\Demo_Collections\TextFile1.txt"))
+                {
+                    string line;
+                    // Read each line from a file; assume each line contains one name
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        people.Add(new Person(line));
+                        //Console.WriteLine(line);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // Let the user know what went wrong.
+                Console.Write("The file could not be read: ");
+                Console.WriteLine(e.Message);
+            }
+            foreach (Person p in people)
+            {
+                p.Print();
             }
 
-        }
-        static void testPoints()
-        {
-            List<Point> pointsList = new List<Point>();
-            Point p1 = new Point();
-            Point p2 = new Point();
-            pointsList.Add(p1);
-            pointsList.Add(p2);
+            //keep console open during debugging
+            Console.ReadKey();
         }
     }
 }

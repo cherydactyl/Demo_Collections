@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo_Collections
 {
-    class Customer
+    class Person
     {
         static int numberOfCustomers;
         string name;
@@ -17,13 +17,13 @@ namespace Demo_Collections
             get { return this.id; }
         }
 
-        public Customer()
+        public Person()
         {
             numberOfCustomers++;
             this.name = "Customer" + numberOfCustomers;
             this.id = numberOfCustomers;
         }
-        public Customer(string _name)
+        public Person(string _name)
         {
             numberOfCustomers++;
             this.name = _name;
